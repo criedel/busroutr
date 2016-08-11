@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -24,7 +25,7 @@ public class RouteCalculator {
 
     public RouteCalculator(@Value("${data.file}") final String dataFile) throws IOException {
 
-        try (Stream<String> lines = Files.lines(Paths.get(dataFile))) {
+        try (Stream<String> lines = Files.lines(FileSystems.getDefault().getPath(dataFile))) {
 
             // maps all lines, skipping the info line, trimming accidental whitespace and maps to Route objects
             this.routes = lines.skip(1).map(String::trim).map(this::parseRoute).collect(Collectors.toList());
