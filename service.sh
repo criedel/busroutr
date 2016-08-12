@@ -35,6 +35,7 @@ case "$1" in
     stop
     ;;
   block)
+    start
     sleep infinity
     ;;
   *)
