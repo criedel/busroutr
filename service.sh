@@ -1,7 +1,7 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-RUN="java -jar bus-routr-0.0.1-SNAPSHOT.jar"
+RUN="java -jar target/bus-routr-0.0.1-SNAPSHOT.jar"
 NAME=BusRoutrApp
 
 DATA_FILE=$2
@@ -35,7 +35,6 @@ case "$1" in
     stop
     ;;
   block)
-    block
     sleep infinity
     ;;
   *)
