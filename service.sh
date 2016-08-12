@@ -14,7 +14,7 @@ start() {
     echo 'Service already running' >&2
     return 1
   fi
-  local CMD="$RUN -Ddata.file=$DATA_FILE &> \"$LOGFILE\" & echo \$!"
+  local CMD="$RUN --data.file=$DATA_FILE &> \"$LOGFILE\" & echo \$!"
   sh -c "$CMD" > "$PIDFILE"
 }
 
